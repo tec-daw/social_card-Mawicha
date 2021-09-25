@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Business Card</title>
+    <!--Fuentes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
+    <!--Css-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <!--Root-->
+    <div id="root"></div>
+    <!--Scripts externos-->
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <!--Script de Babel-->
+    <script type="text/babel">
+        {/*elemento root*/}
+        const rootElement = document.getElementById('root');
+            
+        {/*componente BusinessCard*/}
+        class BusinessCard extends React.Component{
+            constructor(props){
+                super(props);
+            }
+
+            render() {
+                console.log(this.props);
+
+                return(
+                    <div className="business-card">
+                        <div className="superior">
+                            <img src={this.props.image} alt="Foto" id="image" ></img>
+                        </div>
+                        <div className="inferior">
+                        <h3> 
+                        Nombre: {this.props.name}
+                        </h3>
+                        <h4>
+                        Carrera: {this.props.career}
+                        </h4>
+                        <p>
+                        ITESM Campus {this.props.campus} Email {this.props.email} Github: {this.props.usergit}
+                        </p>
+                        </div>
+                        </div> 
+                );
+            }
+        }
+        
+        ReactDOM.render(
+            <BusinessCard 
+                image="foto.jpeg"
+                name="Maria Luisa Pérez Sandoval" 
+                career="Ingeniería en TI"
+                campus="Hidalgo"
+                email="A01274427@itesm.mx"
+                usergit="Mawicha"
+            />,
+            rootElement
+        )
+    </script>
+</body>
+</html>
